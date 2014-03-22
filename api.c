@@ -1660,6 +1660,10 @@ static void gpustatus(struct io_data *io_data, int gpu, bool isjson, bool precom
 
 		if (cgpu->dynamic)
 			strcpy(intensity, DYNAMIC);
+		else if (cgpu->xintensity > 0)
+			sprintf(intensity, "X%d", cgpu->xintensity);
+		else if (cgpu->rawintensity > 0)
+			sprintf(intensity, "R%d", cgpu->rawintensity);
 		else
 			sprintf(intensity, "%d", cgpu->intensity);
 
